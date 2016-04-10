@@ -20,7 +20,10 @@
   },
   "scripts": {
     "start": "babel-node server.js",
-    "test": "NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli cover --report cobertura --dir shippable/codecoverage ./node_modules/.bin/_mocha test/specs"
+    "test": "NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli cover --report cobertura --dir shippable/codecoverage ./node_modules/.bin/_mocha test/specs",
+    "build-server": "babel ./lib --out-dir ./dist/lib",
+    "build": "npm run clean && npm run build-server",
+    "clean": "rm -rf ./dist && mkdir ./dist"
   },
   "dependencies": {
     "lodash": "^4.5.1",
